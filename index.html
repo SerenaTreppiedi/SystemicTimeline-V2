@@ -1198,400 +1198,43 @@
 
 
 
+function loadData() {
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxa1RYzP6CHKUFoxVvmVflsQtaMum0ZGeqfoqmEXLcWzPbAdLHAoKSE6HoMAjW-tEzdlA/exec';
+    
+    timelineData = {
+        '1. Storia Generale': [],
+        '2. Enti': [],
+        '3. Documentazione': [],
+        '4. Eventi': [],
+        '5. Definizioni': []
+    };
 
-        function loadData() {
-            // Dati CSV omessi per brevità, ma immaginate siano qui
-            const csvData = `1861;Unificazione d'Italia;1. Storia Generale;No;No;
-1866;Legge sulle Fabbriche (Factory Acts) - Parlamento, Gran Bretagna;1. Storia Generale;Si;No;
-1913;Prima linea di montaggio (produzione di massa) - Henry Ford, Stati Uniti;1. Storia Generale;No;No;
-1914;Prima Guerra Mondiale;1. Storia Generale;No;No;
-1917;Rivoluzione Russa;1. Storia Generale;No;No;
-1929;Crollo di Wall Street e Grande Depressione;1. Storia Generale;No;No;
-1939;Seconda Guerra Mondiale;1. Storia Generale;No;No;
-1945;Bombe atomiche su Hiroshima e Nagasaki - Giappone;1. Storia Generale;No;No;
-1946;Able (primo test di arme atomiche) - Atollo Bikini;1. Storia Generale;No;No;
-1952;Grande smog di Londra - Gran Bretagna;1. Storia Generale;Si;No;
-1957;Istituita la Comunità Economica Europea;1. Storia Generale;No;No;
-1969;"Primo atterraggio sulla Luna (visione della ""Terra dallo spazio"")";1. Storia Generale;No;No;
-1973;Prima crisi Petrolifera;1. Storia Generale;Si;No;
-1973;Legge sulle Specie in Pericolo approvata - Stati Uniti;1. Storia Generale;Si;No;
-1975;Fine della guerra del Vietnam;1. Storia Generale;No;No;
-1979;Incidente nucleare di Three Mile Island - Pennsylvania;1. Storia Generale;No;No;
-1984;Tragedia del gas di Bhopal - India;1. Storia Generale;No;No;
-1985;Scoperta del buco nell'ozono sull'Antartide;1. Storia Generale;Si;No;
-1986;Disastro nucleare di Chernobyl - Unione Sovietica;1. Storia Generale;No;No;
-1986;Atto Unico Europeo (AUE);1. Storia Generale;No;No;
-1987;Firma del Protocollo di Montréal (protezione dello strato di ozono) - Canada;1. Storia Generale;Si;No;
-1989;Caduta del muro di Berlino - Germania;1. Storia Generale;No;No;
-1989;Inventato il World Wide Web - CERN, Tim Berners-Lee, Svizzera/Francia;1. Storia Generale;No;No;
-1990;Unificazione della Germania;1. Storia Generale;No;No;
-1990;Prima foto del pianeta Terra (Pale Blue Dot) - Sonda Voyager 1;1. Storia Generale;No;No;
-1995;Istituita l'Organizzazione mondiale del commercio;1. Storia Generale;No;No;
-1997;Adozione del Protocollo di Kyoto (COP3) ;1. Storia Generale;Si;No;
-2000;Istituzione degli Obiettivi di Sviluppo del Millennio (MDGs) - UN;1. Storia Generale;Si;No;
-2001;Attacchi dell'11 Settembre - Stati Uniti;1. Storia Generale;No;No;
-2001;Convenzione di Stoccolma sugli Inquinanti Persistenti;1. Storia Generale;Si;No;
-2004;Espansione dell'unione europea a 25 membri;1. Storia Generale;No;No;
-2005;Entrata in vigore del Protocollo di Kyoto;1. Storia Generale;Si;No;
-2008;Crisi Finanziaria Globale;1. Storia Generale;No;No;
-2011;Disastro nucleare di Fukushima - Giappone;1. Storia Generale;No;No;
-2015;Firma dell'Accordo di Parigi sul clima (COP21);1. Storia Generale;Si;No;
-2015;Istituzione degli Obiettivi di Sviluppo Sostenibile (SDGs) dell'Agenda 2030 - UN;1. Storia Generale;Si;No;
-2016;Referendum per la Brexit - Inghilterra;1. Storia Generale;No;No;
-2017;Annuncio degli USA del ritiro dall'Accordo di Parigi;1. Storia Generale;Si;No;
-2019;Green Deal Europeo - Europa;1. Storia Generale;Si;No;
-2020;Pandemia di COVID-19 (impatto su economia e ambiente);1. Storia Generale;No;No;
-2021;Patto Climatico di Glasgow (COP26);1. Storia Generale;Si;No;
-2022;La Russia invade l'Ucraina (guerra e crisi energetica);1. Storia Generale;No;No;
-2022;CSDR (Corporate Sustainability Reporting Directive) - Europa;1. Storia Generale;Si;No;
-2023;Lancio di ChatGPT - Sam Altman, OpenAI, Stati Uniti;1. Storia Generale;No;No;
-2023;Istituzione del Fondo per Perdite e Danni alla COP28;1. Storia Generale;Si;No;
-2024;Global Stocktake dell'Accordo di Parigi;1. Storia Generale;Si;No;
-2025;Entrata in vigore del Carbon Border Adjustment Mechanism (CBAM) dell'Unione Europea;1. Storia Generale;Si;No;
-1859;Politecnico di Torino - Italia;2. Enti;No;Si;
-1868;Sierra Club - John Muir, Stati Uniti;2. Enti;Si;No;
-1919;Scuola del Bauhaus (approccio sistemico al design agli albori) - Germania;2. Enti;No;No;
-1945;Nazioni Unite;2. Enti;No;No;
-1945;Bulletin of the Atomic Scientists (BAS) - Manhattan Project e Albert Einstein;2. Enti;No;No;
-1948;Unione Internazionale per la Conservazione della Natura (IUCN) -  Svizzera;2. Enti;Si;No;
-1953;Scuola di Ulm, approccio sistemico al design industriale - Germania;2. Enti;No;No;
-1961;MIT System Dynamics Group - Jay Forrester;2. Enti;No;No;
-1961;Organizzazione Mondiale del Design (WDO) - Jacques Vienot;2. Enti;No;No;
-1966;Consiglio Internazionale delle Società di Disegno Industriale (ICSID) - ADI e altre associazioni nazionali, Londra, Regno Unito;2. Enti;No;No;
-1966;Fondato World Future Society - Edward Cornish;2. Enti;No;No;
-1968;Club di Roma - Aurelio Peccei, Torino, Italia;2. Enti;Si;No;
-1970;Portland State University (PSU, Dipartimento di Scienza dei Sistemi) - Stati Uniti;2. Enti;No;No;
-1971;Università di Bergen (UiB) - Gruppo di Dinamica dei Sistemi, Norvegia;2. Enti;No;No;
-1971;Greenpeace - Canada;2. Enti;Si;No;
-1973;Istituto per la Biologia dei Sistemi - Italia;2. Enti;No;No;
-1974;Worldwatch Institute (WWI) - Lester Brown, Stati Uniti;2. Enti;No;No;
-1975;Istituto Internazionale per l'Analisi dei Sistemi Applicati (IIASA) - Austria;2. Enti;No;No;
-1976;Società di System Dynamics - Stati Uniti;2. Enti;No;No;
-1983;Mind & Life Institute - Francisco Varela, Stati Unite;2. Enti;No;No;
-1984;Santa Fe Institute (SFI) - George Cowan, Murray Gell-Mann e altri, New Mexico;2. Enti;No;No;
-1985;Cortona Week, scienza e spiritualità - Pier Luigi Luisi, Italia;2. Enti;No;No;
-1986;Slow Food - Carlo Petrini, Italia;2. Enti;No;No;
-1990;Society for Learning Organization - Peter Senge, Stati Uniti;2. Enti;No;No;
-1991;Schumacher College - Satish Kumar, Regno Unito;2. Enti;No;No;
-1994;Zero Emissions Research and Initiatives (ZERI) - Gunter Pauli, Università delle Nazioni Unite;2. Enti;Si;No;
-1995;Center for Ecoliteracy (CEL) - Fritjof Capra, California, Stati Uniti;2. Enti;Si;No;
-2000;Biomimicry Institute - Janine Benyus, Montana, Stati Uniti;2. Enti;Si;No;
-2000;Sviluppo dell'approccio del Design Sistemico (SyD) - Luigi Bistagnino, PoliTO & ZERI, Italia;2. Enti;Si;Si;
-2002;Lancio del Master in Ecodesign del Politecnico di Torino, Italia;2. Enti;No;Si;
-2004;"Lancio del Master ""Aurelio Peccei"" in Design Sistemico al Politecnico di Torino - Italia";2. Enti;No;Si;
-2005;Istituzione dell'Unità di Ricerca (SyD) in Design Sistemico al Politecnico di Torino - Italia;2. Enti;No;Si;
-2008;Service Design Network fondato - Brigit Mager;2. Enti;No;No;
-2010;Lancio del Master in Design Sistemico al Politecnico di Torino - Italia ;2. Enti;No;Si;
-2012;Systemic Design Research Network (SDRN) - AHO Oslo, Norvegia ;2. Enti;No;No;
-2012;Avvio di simposi annuali sul Design Sistemico - Systemic Design Research Network;2. Enti;No;No;
-2012;"Campagna ""Fossil Free"" di 350.org - Bill McKibben, Stati Uniti";2. Enti;Si;No;
-2013;Primo RSD (Relating Systems Thinking and Design) Symposium -  Birger Sevaldson e Marit Helgesen, Norvegia;2. Enti;No;No;
-2013;Primo programma di Dottorato in Design Sistemico al Politecnico di Torino - Italia;2. Enti;No;Si;
-2016;Integrazione del corso di Blue Economy nel Design Sistemico al Politecnico di Torino - Italia;2. Enti;No;Si;
-2018;Systemic Design Association (SDA - associazione no-profit) - Italia;2. Enti;No;No;
-1854;Sull'Origine delle Specie (On the Origin of Species) - Charles Darwin, John Murray, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1859;Sull'Origine delle Specie (On the Origin of Species) - Charles Darwin, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1936;Biological Principles - Joseph Woodger, Kegan Paul, Trench, Trubner & Co., Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1942;Evolution: The Modern Synthesis - Julian Huxley, George Allen & Unwin, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1944;Theory of Games and Economic Behavior - John von Neumann, Princeton University Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1944;What Is Life? - Erwin Schrödinger, Cambridge University Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1953;Fundamentals of Ecology - Eugene Odum, W.B. Saunders, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1955;Designing for People - Henry Dreyfuss, Simon and Schuster, libro;3. Documentazione;A. Libro/Testo;No;No;
-1961;The Death and Life of Great American Cities - Jane Jacobs, Random House, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1962;The Structure of Scientific Revolutions - Thomas Kuhn, University of Chicago Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1962;Silent Spring - Rachel Carson, Houghton Mifflin, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1966;The Information Age - Manuel Castells, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1966;The Economics of the Coming Spaceship Earth - K. Boulding, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1968;La bomba demografica - Paul Ehrlich, Ballantine Books, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1968;Principles of Systems - Jay W. Forrester, Wright-Allen Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1969;The Systems View of the World - Ervin László, George Braziller, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1969;Operating Manaul for Spaceship Earth - R. Buckminsterl Fuller, Southern Illinois University Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1971;Design for the Real World - Victor Papanek, Pantheon Books, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1971;The Closing Circle - Barry Commoner, Alfred A. Knopf, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1972;L'imbroglio Ecologico - Dario Paccino, Einaudi, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1973;Small is Beautiful - Ernst Friedrich Schumacher, Blond & Briggs, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1974;The Anatomy of Resource Scarcity - Walter Stahel, Genevieve Reday, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1975;The Tao of Physics - Fritjof Capra, Shambhala Publications, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1976;The Entropy Law and the Economic Process - Nicholas Georgescu-Roegen, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1978;The Twenty-Ninth day - Lester R. Brown, W. W. Norton & Company, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1979;Gaia. A New Look at Life on Earth - James Lovelock, Oxford University Press, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1979;La speranza progettuale. Ambiente e società - Thomas Maldonado, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1982;The Turning Point - Fritjof Capra, Simon and Schuster, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1984;Order out of Chaos - Ilya Prigogine, Isabelle Stengers, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1988;User-Centered System Design - Donald A. Norman, Lawrence Erlbaum Associates, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1988;The Psychology of Everyday Things (The Design of Everyday Things) - Don Norman, Basic Books, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1990;La quinta disciplina (The Fifth Discipline) - Peter Senge, Doubleday, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1991;The Embodied Mind - George Lakoff e Mark Johnson, The MIT Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1992;Wicked Problems in Design Thinking - Richard Buchanan, Design Issues, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1992;Beyond the Limits - Donella Meadows, Dennis Meadows, Jørgen Randers, Earthscan, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1994;Oltre la crescita. L'economia dello sviluppo sostenibile - Herman E. Daly, Beacon Press, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1994;The Ecology of Commerce - Paul Hawken, HarperBusiness, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1996;The Rise of the Network Society - Manuel Castells, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1996;La Rete della Vita (The Web of Life) - Fritjof Capra, Anchor Books, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1997;Trilogia The Information Age: Economy, Society and Culture - Manuel Castells, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1997;Biomimicry: Innovation Inspired by Nature - Janine Benyus, William Morrow and Co., Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1997;Ecology and Design - Bart Johnson e Kristina Hill, Island Press, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-1999;Natural Capitalism - Paul Hawken, Amory Lovins, L. Hunter Lovins, Little, Brown and Company, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2000;Il fare ecologico - Carla Lanzavecchia, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2002;Cradle to Cradle - Michael Braungart, William McDonough, North Point Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2002;Biomimicry - Janine Benyus, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2003;A Primer on Systems Thinking - Richmond, Peterson, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2005;The Sustainability Revolution - Andres Edwards, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2006;Intelligenza Ecologica - Daniel Goleman, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2007;The Shift Age - David Houle, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2007;The Blue Economy - Gunter Pauli, Paradigm Publications, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2008;Thinking in Systems: A Primer - Donella Meadows, Chelsea Green Publishing, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2008;Design for the Other 90% - Smithsonian Cooper-Hewitt, Catalogo di mostra;3. Documentazione;A. Libro/Testo;No;No;
-2009;Plan B - Lester Brown, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2009;Design Sistemico. Progettare la sostenibilità produttiva e ambientale - Luigi Bistagnino, FrancoAngeli, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2010;Change by Design - Tim Brown, HarperBusiness, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2010;The Blue Economy: 10 years - 100 innovations - 100 million jobs - Gunter Pauli, Global ZERI Network, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2011;The Third Industrial Revolution - Jeremy Rifkin, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2011;Consciousness and the Universe - Roger Penrose, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2011;Thinking, Fast and Slow - Daniel Kahneman, Allen Lane, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2011;Reinventing Fire - Amory Lovins, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2012;2052: A Global Forecast for the Next Forty Years - Jorgen Randers, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2013;Design When Everybody Designs - Ezio Manzini, The MIT Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2014;Systemic Design Principles for Complex Social Systems - Peter Jones, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2014;microMACRO. Micro relazioni come rete vitale del sistema economico e produttivo - Luigi Bistagnino, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2014;La Rete della Vita (The Systems View of Life) - Fritjof Capra, Pier Luigi Luisi, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2015;The Systems Thinking Playbook - Linda Booth Sweeney, Dennis Meadows, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2015;La sesta estinzione (The Sixth Extinction) - Elizabeth Kolbert, Henry Holt and Company, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2015;On Care for Our Common Future - Papa Francesco, Enciclica;3. Documentazione;A. Libro/Testo;Si;No;
-2017;L'Economia della Ciambella (Doughnut Economics) - Kate Raworth, Chelsea Green Publishing, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2017;Designing Regenerative Cultures - Daniel Wahl, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2017;Drawdown. Il piano più completo mai proposto per invertire il riscaldamento globale - Paul Hawken, Penguin Books, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2018;Transition Design - Terry Irwin, Routledge, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2018;Systems Change - Peter Senge, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2018;The Uninhabitable Earth - David Wallace-Wells, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2019;The Age of Surveillance Capitalism - Shoshana Zuboff, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2019;Less is More - Jason Hickel, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2019;Design for Sustainability - Tracy Bhamra, Vicky Lofthouse, Libro ;3. Documentazione;A. Libro/Testo;No;No;
-2019;Systems Thinking and Design Toolkit - Kristel Van Ael, Peter Jones, Toolkit Pratico;3. Documentazione;A. Libro/Testo;No;No;
-2020;Systemic Design Methods - Peter Jones, Libro Accademico;3. Documentazione;A. Libro/Testo;No;No;
-2020;Design Justice - Sasha Costanza-Chock, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2020;How to Avoid a Climate Disaster - Bill Gates, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2021;Designing Complexity. The Methodology and Practice of Systems Oriented Design - Birger Sevaldson, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2021;Design Journeys through Complex Systems: Practice Tools for Systemic Design - Peter Jones, Kristel Van Ael, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2021;Regeneration - Paul Hawken, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2021;Systemic Design for Sustainability - Peter Jones, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2023;The Climate Book - Greta Thunberg, Libro;3. Documentazione;A. Libro/Testo;Si;No;
-2023;Design for a Better World - Don Norman, Libro;3. Documentazione;A. Libro/Testo;No;No;
-2024;Systemic Service Design - Mari Suoheimo, Peter Jones, Libro ;3. Documentazione;A. Libro/Testo;No;No;
-1977;La Natura della Natura (La Nature de la nature) - Edgar Morin, Éditions du Seuil, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1987;Teoria del Design (Design Theory) - Christopher Alexander, Oxford University Press, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1993;Introduzione al pensiero complesso - Edgar Morin, Sperling & Kupfer, Libro;3. Documentazione;A. Libro/Testo;No;No;
-1967;1° edizione di Futuribili - Pietro Ferraro, Rivista;3. Documentazione;B. Rivista;No;No;
-1968;1° edizione di The Whole Earth Catalog - Stewart Brand, Rivista;3. Documentazione;B. Rivista;Si;No;
-1967;Environmental Science & Technology - Bisettimanale, American Chemical Society, Rivista;3. Documentazione;B. Rivista;Si;No;
-1980;The Design Journal - Trimestrale, Taylor & Francis, Rivista;3. Documentazione;B. Rivista;No;No;
-1966;Nature - Settimanale, Nature Portfolio (Springer Nature), Rivista;3. Documentazione;B. Rivista;Si;No;
-1990;Science - Settimanale, American Association for the Advancement of Science (AAAS), Rivista;3. Documentazione;B. Rivista;No;No;
-1984;Systemic Practice and Action Research - Bimestrale, Springer, Rivista;3. Documentazione;B. Rivista;No;No;
-1979;Design Studies - Bimestrale, Elsevier, Rivista;3. Documentazione;B. Rivista;No;No;
-2007;Design and Culture - Taylor & Francis;3. Documentazione;B. Rivista;No;No;
-1997;Journal of Industrial Ecology - Bimestrale, Wiley-Blackwell per Yale School of the Environment, Rivista;3. Documentazione;B. Rivista;No;No;
-1999;Journal of Industrial Ecology, Rivista;3. Documentazione;B. Rivista;Si;No;
-1943;A Logical Calculus of the Ideas Immanent in Nervous Activity (Neuroni idealizzati e auto-organizzazione) - Warren McCulloch, Walter Pitts. Bulletin of Mathematical Biophysics, Articolo;3. Documentazione;C. Articolo;No;No;
-1989;The End of Nature - The New Yorker, Bill McKibben, The New Yorker, Articolo;3. Documentazione;C. Articolo;Si;No;
-1994;The Population Explosion and the World Economy - The Atlantic, Peter M. Senge, The Atlantic, Articolo;3. Documentazione;C. Articolo;No;No;
-2005;Tipping Point: The Unthinkable Has Become the Inevitable - The Independent, Michael McCarthy, The Independent, Articolo;3. Documentazione;C. Articolo;Si;No;
-2012;A World Without the Amazon - The New York Times, Andrew Revkin, The New York Times, Articolo;3. Documentazione;C. Articolo;Si;No;
-2013;Systemic Design for Sustainability - Silvia Barbero, Politecnico di Torino, Articolo ;3. Documentazione;C. Articolo;Si;No;
-2014;A Better Way to Think About the World - Donella Meadows, The Guardian, Articolo;3. Documentazione;C. Articolo;Si;No;
-2015;The Age of the Anthropocene - Elizabeth Kolbert, National Geographic, Articolo;3. Documentazione;C. Articolo;No;No;
-2019;System Change, Not Climate Change - Bill McKibben, The New York Times, Articolo;3. Documentazione;C. Articolo;Si;No;
-2021;Design for services in complex system contexts - Peter Jones, Kristel Van Ael, Touchpoint Journal, Articolo ;3. Documentazione;C. Articolo;No;No;
-1945;"Prima edizione del ""Bulletin of the Atomic Scientists"", Bollettino Annuale";3. Documentazione;D. Paper/Documento Accademico;No;No;
-1968;The Tragedy of the Commons - Garrett Hardin, Science, Paper;3. Documentazione;D. Paper/Documento Accademico;No;No;
-1972;I limiti dello sviluppo (The Limits to Growth) - Club of Rome -  Donella Meadows, Dennis Meadows, Jorgen Randers, William Behrens III, Libro-Report;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-1987;"Rapporto della Commissione Brundtland ""Our Common Future"" - ONU, World Commission on Environment and Development (WCED) - Report";3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2004;"Rapporto ""Who Cares Wins"", principi ESG - ONU, Report";3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2006;The Stern Review on the Economics of Climate Change - Nicholas Stern, HM Treasury (Governo del Regno Unito), Report;3. Documentazione;D. Paper/Documento Accademico;No;No;
-2011;Towards the Circular Economy - Ellen MacArthur Foundation, Paper;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2013;The Circular Economy Vol. 1-3 - Ellen MacArthur Foundation, Report;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2015;Paris Agreement - UNFCCC, Report;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2016;Gigamapping - Birger Sevaldson, Paper Metodologico;3. Documentazione;D. Paper/Documento Accademico;No;No;
-2016;Circular Economy Action Plan - European Commission, Report;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2018;"Rapporto Speciale ""Global Warming of 1.5°C"" - IPCC, Report";3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2018;Systems Thinking for Sustainable Development - UNEP, Report;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2019;The Great Acceleration: The Rise of the Anthropocene - W. Steffen, J. Grinevald, P. Crutzen, Paper;3. Documentazione;D. Paper/Documento Accademico;No;No;
-2019;The European Green Deal - European Commission, Report;3. Documentazione;D. Paper/Documento Accademico;Si;No;
-2021;Sixth Assessment Report (AR6), The Physical Science Basis - IPCC, Report;3. Documentazione;D. Paper/Documento Accademico;No;No;
-2021;Systemic Design Association Manifesto - Silvia Barbero (Chair), Manifesto;3. Documentazione;D. Paper/Documento Accademico;No;No;
-2006;Una scomoda verità (An Inconvenient Truth) - Al Gore, Davis Guggenheim, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2008;WALL•E - Andrew Stanton, Film d'Animazione;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2009;No Impact Man - Laura Gabbert, Justin Schein, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2012;The Doughnut of Social and Planetary Boundaries - Kate Raworth, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-2013;Last Call (Ultima Chiamata) - Enrico Cerasuolo, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2014;Cowspiracy: The Sustainability Secret - Kip Andersen, Keegan Kuhn, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2016;Punto di non ritorno (Before the Flood) - Fisher Stevens, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2018;Closing the Loop - Graham E. S. Brown, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2019;The Human Element - Matthew Testa, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-2019;2040 - Damon Gameau, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2020;David Attenborough: A Life on Our Planet - Alastair Fothergill, Jonathan Hughes, Keith Scholey, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2021;Seaspiracy - Ali Tabrizi, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-2022;Breaking Boundaries: The Science of Our Planet - Jon Clay, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-2022;Materia Viva - Marco Falorni, Andrea Frassoni, Stefano Lazzarini, Docufilm;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-2022;The Systems View of Life - Fritjof Capra, Serie di video/Corso Online;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-2023;Le radici del futuro - Giovanni P. C. T. B., Docufilm;3. Documentazione;E. Film/Video e materiali audiovisivi;Si;No;
-2024;Donut Economics - The Movie - Kate Raworth, Documentario;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-1996;Il pianeta verde (La Belle Verte) - Coline Serreau, Film;3. Documentazione;E. Film/Video e materiali audiovisuali;Si;No;
-2020;Systemic Design Toolkit - Kristel Van Ael, Toolkit;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-1936;Macchina di Turing (Primo grande calcolatore) - Alan Turing, Brevetto;3. Documentazione;E. Film/Video e materiali audiovisivi;No;No;
-1946;Macy Conferences (Sviluppo del quadro concettuale della cibernetica - New York, Stati Uniti, fino al 1953;4. Eventi;No;No;
-1956;Conferenza di Dartmouth (Nascita dell'Intelligenza Artificiale) - John McCarthy, Marvin Minsky, Nathaniel Rochester e Claude Shannon, New Hampshire, Stati Uniti;4. Eventi;No;No;
-1969;Conference on General Systems Theory - Society for General Systems Research, Washington D.C., Stati Uniti;4. Eventi;No;No;
-1970;Prima Giornata della Terra (Earth Day) - Nazioni Unite;4. Eventi;Si;No;
-1971;Conferenze Uomo, Natura e Società - Istituto Gramsci, Italia;4. Eventi;Si;No;
-1972;Conferenzate sull'Ambiente Umano (Intergovernmental Conference on the Human Environment) - Nazioni Unite, Stoccolma, Svezia;4. Eventi;Si;No;
-1984;International Society for the Systems Sciences - ISSS, Budapest, Ungheria;4. Eventi;Si;No;
-1987;Commissione Mondiale per l'ambiente e lo sviluppo (Our Common Future) - Nazioni Unite, Oslo ;4. Eventi;Si;No;
-1992;Commissine Mondiale su Ambiente e Sviluppo (Earth Summit) - Nazioni Unite, Rio de Janeiro, Brasile;4. Eventi;Si;No;
-1995;COP1 (Prima Conferenza ONU sul Cambiamento Climatico) - UNFCCC, Berlino, Germania;4. Eventi;Si;No;
-1996;COP2 - UNFCCC, Ginevra, Svizzera;4. Eventi;Si;No;
-1997;COP3 - UNFCCC, Kyoto, Giappone;4. Eventi;Si;No;
-1998;COP4 - UNFCCC, Buenos Aires, Argentina;4. Eventi;Si;No;
-1999;COP5 - UNFCCC, Bonn, Germania;4. Eventi;Si;No;
-2000;COP6 - UNFCCC, L'Aia, Paesi Bassi;4. Eventi;Si;No;
-2000;Summit del Milennio (Millennium Summit) - Nazioni Unite, New York, Stati Uniti;4. Eventi;Si;No;
-2001;COP7 - UNFCCC, Marrakech, Marocco;4. Eventi;Si;No;
-2001;Vertice Mondiale sullo Sviluppo Sostenibile (WSDS) - The Energy and Resources Institute (TERI), Nuova Delhi, India ;4. Eventi;Si;No;
-2002;COP8 - UNFCCC, Nuova Delhi, India;4. Eventi;Si;No;
-2002;Vertice mondiale sullo Sviluppo Sostenibile (Rio+10) - Nazioni Unite, Johannesburg, Sudafrica;4. Eventi;Si;No;
-2003;COP9 - UNFCCC, Milano, Italia;4. Eventi;Si;No;
-2004;COP10 - UNFCCC, Buenos Aires, Argentina;4. Eventi;Si;No;
-2005;COP11 - UNFCCC, Montréal, Canada;4. Eventi;Si;No;
-2005;World Sustainable Energy Days (WSED) - O.Ö. Energiesparverband, Wels, Austria;4. Eventi;Si;No;
-2006;COP12 - UNFCCC, Nairobi, Kenya;4. Eventi;Si;No;
-2007;COP13 - UNFCCC, Bali, Indonesia;4. Eventi;Si;No;
-2007;Al Gore vince il Premio Nobel per la Pace per il suo lavoro sul clima;4. Eventi;Si;No;
-2008;COP14 - UNFCCC, Pozna?, Polonia;4. Eventi;Si;No;
-2009;COP15 - UNFCCC, Copenaghen, Danimarca;4. Eventi;Si;No;
-2010;COP16 - UNFCCC, Cancún, Messico;4. Eventi;Si;No;
-2011;COP17 - UNFCCC, Durban, Sudafrica;4. Eventi;Si;No;
-2012;COP18 - UNFCCC, Doha, Qatar;4. Eventi;Si;No;
-2012;Planet Under Pressure Conference - International Council for Science, Londra, Regno Unito;4. Eventi;Si;No;
-2012;Conferenza sullo Sviluppo Sostenibile (Rio+20) - Nazioni Unite, Copenhagen, Danimarca;4. Eventi;Si;No;
-2012;RSD1 – Relating Systems Thinking and Design - Oslo School of Architecture and Design (AHO), Oslo, Norvegia;4. Eventi;No;No;
-2013;COP19 - UNFCCC, Varsavia, Polonia;4. Eventi;Si;No;
-2014;COP20 - UNFCCC, Lima, Perù;4. Eventi;Si;No;
-2014;Net Zero Conference - Verdical Group, Los Angeles, USA;4. Eventi;Si;No;
-2015;COP21 - UNFCCC, Parigi, Francia;4. Eventi;Si;No;
-2016;COP22 - UNFCCC, Marrakech, Marocco;4. Eventi;Si;No;
-2016;Lanciato il Systemic Design Framework - Design Council UK;4. Eventi;No;No;
-2017;COP23 - UNFCCC, Bonn, Germania;4. Eventi;Si;No;
-2018;COP24 - UNFCCC, Katowice, Polonia;4. Eventi;Si;No;
-2018;Primo sciopero globale per il clima di Fridays for Future - Greta Thunberg;4. Eventi;Si;No;
-2019;COP25 - UNFCCC, Madrid, Spagna;4. Eventi;Si;No;
-2019;World Circular Economy Forum (WCEF), Sitra – Finnish Innovation Fund, Helsinki, Finlandia;4. Eventi;Si;No;
-2020;Systems Innovation Global Summit - Systems Innovation Network, online;4. Eventi;No;No;
-2021;COP26 - UNFCCC, Glasgow, Regno Unito;4. Eventi;Si;No;
-2022;COP27 - UNFCCC, Sharm el-Sheikh, Egitto;4. Eventi;Si;No;
-2023;COP28 - UNFCCC, Dubai, Emirati Arabi Uniti;4. Eventi;Si;No;
-2023;New European Bauhaus Festival - Commissione Europea, Bruxelles, Belgio;4. Eventi;No;No;
-2024;COP29 - UNFCCC, Baku, Azerbaigian;4. Eventi;Si;No;
-2025;COP30 - UNFCCC, Belém, Brasile;4. Eventi;Si;No;
-2025;Prima conferenza nazionale sull'economia circolare - Circular Economy Network, Roma, Italia;4. Eventi;Si;No;
-2025;ECCA 2025 – European Climate Change Adaptation Conference - Commissione Europea, Rimini, Italia;4. Eventi;Si;No;
-2025;CLIMA 2025 – REHVA World Congress, REHVA, Milano, Italia;4. Eventi;Si;No;
-1857;Concetto di Ergonomia - Wojciech Jastrz?bowski;5. Definizioni;No;No;
-1869;"Concetto di ""Biosfera"" - Eduard Suess";5. Definizioni;Si;No;
-1880;Nascita dell'Ecologia - Ernst Haeckel, Charles Elton;5. Definizioni;Si;No;
-1890;Psicologia della Gestalt - Christian von Ehrenfels;5. Definizioni;No;No;
-1892;"Primo utilizzo del termine ""Ecosistema"" - Arthur Tansley";5. Definizioni;Si;No;
-1900;Biologia Organismica, Definizione di Sistema - Ross Harrison, Lawrence Henderson, Joseph Woodger -;5. Definizioni;Si;No;
-1905;"Idea di ""conservazione"" - Theodore Roosevelt";5. Definizioni;Si;No;
-1912;Tektology - Alexander Bogdanov;5. Definizioni;No;No;
-1920;Teoria Quantistica - Planck, Einstein, Bohr, Heisenberg, Schrödinger;5. Definizioni;No;No;
-1927;Catena Alimentare - Charles Elton;5. Definizioni;Si;No;
-1947;"Primo uso del ""Doomsday Clock"" - Bulletin of the Atomic Scientists";5. Definizioni;No;No;
-1948;Cybernetics - Norbert Wiener;5. Definizioni;No;No;
-1950;Teoria Generale dei Sistemi - Ludwig von Bertalanffy;5. Definizioni;No;No;
-1950;Auto-organizzazione - Ross Ashby, Heinz von Foerster;5. Definizioni;No;No;
-1953;Scoperta della struttura del DNA e del Codice Genetico;5. Definizioni;No;No;
-1960;Sviluppo della Teoria di Gaia - James Lovelock e Lynn Margulis;5. Definizioni;Si;No;
-1961;Effetto Farfalla e Teoria del Caos - Edward Norton Lorenz;5. Definizioni;No;No;
-1961;Concetto di System Dynamic - MIT, Jay M. Forrester;5. Definizioni;No;No;
-1962;Legame tra sistemi lontani dall'equilibrio e non-linearità - Ilya Prigogine;5. Definizioni;No;No;
-1962;Definizione di Paradigma - Thomas S. Kuhn;5. Definizioni;No;No;
-1968;La Soft Systems Methodology - Peter Checkland;5. Definizioni;No;No;
-1969;"Concetto di ""processo mentale"" come fenomeno sistemico - Gregory Bateson ";5. Definizioni;No;No;
-1970;"Creazione del termine ""autopoiesi"" - Humberto Maturana, Francisco Varela";5. Definizioni;No;No;
-1972;"Classificazione delle ""catastrofi"" - René Thom";5. Definizioni;No;No;
-1973;The Shallow and the Deep Ecology - Arne Naess;5. Definizioni;Si;No;
-1974;"Viene coniato il termine ""economia circolare"" - Walter Stahel, Genevieve Reday";5. Definizioni;Si;No;
-1975;Concetto di Frattali - Benoît Mandelbrot;5. Definizioni;No;No;
-1978;Nuova Matematica per Sistemi Non-lineari, Sviluppo della teoria della complessità;5. Definizioni;No;No;
-1980;Scuola di Santiago (Santiago Theory of Cognition) - Humberto Maturana, Francisco Varela;5. Definizioni;No;No;
-1980;Complexity Science;5. Definizioni;No;No;
-1981;Concetto di Soft Systems Methodology (SSM) - Peter Checkland;5. Definizioni;No;No;
-1983;Modello Daisy World - James Lovelock e Andrew Watson;5. Definizioni;Si;No;
-1984;Sviluppo del concetto di autopoiesi sociale - Niklas Luhmann;5. Definizioni;No;No;
-1987;Concetto di Sviluppo Sostenibile (Sustainable Development) - Brundtland Commission;5. Definizioni;Si;No;
-1990;Concetto di Design Science - Buckminster Fuller;5. Definizioni;No;No;
-1990;Progetto Genoma Umano;5. Definizioni;No;No;
-1990;Concetto di Learning Organization - Peter Senge;5. Definizioni;No;No;
-1990;"Introduzione dell'""Iceber Model"" - MIT, Peter Senge";5. Definizioni;No;No;
-1990;Concetto di Design for Sustainability (DfS) - Ezio Manzini;5. Definizioni;Si;No;
-1992;Concetto di Biosfera e Biodiversità - Earth Summit di Rio de Janeiro;5. Definizioni;Si;No;
-1992;Concetto di Complex Adaptive Systems - John H. Holland;5. Definizioni;No;No;
-1992;"Primo utilizzo del termine ""Ecodesign"" - R. Brezet e Carolyn van Hemel";5. Definizioni;Si;No;
-1994;Concetto di Regenerative Design - John T. Lyle;5. Definizioni;Si;No;
-1999;Concetto di Service Design Thinking - Birgit Mager;5. Definizioni;No;No;
-2004;Movimento Design for the Other 90% - Paul Polak;5. Definizioni;No;No;
-2006;"Viene coniato il termine ""antropocene"" per descrivere l'attuale era geologica";5. Definizioni;No;No;
-2007;La metodologia del Design Thinking resa popolare da IDEO - Tim Brown, David Kelley;5. Definizioni;No;No;
-2008;Introduzione delle System Maps e Gigamap - AHO, Birger Sevaldson;5. Definizioni;No;No;
-2010;Lanciato il Movimento della Blue Economy - Gunter Pauli;5. Definizioni;Si;No;
-2010;Concetto di Circular Design - Ellen MacArthur Foundation;5. Definizioni;Si;No;
-2011;Concetto di Holistic Diagnosis (HD) - PoliTO, Luigi Bistagnino;5. Definizioni;No;Si;
-2011;Concetto di Systemic Design - Luigi Bistagnino;5. Definizioni;No;Si;
-2012;Concetto di Systems Oriented Design (SOD) - Birger Sevaldson e Peter Jones;5. Definizioni;No;No;
-2015;Systems Oriented Design - Birger Sevaldson, Metodologia;5. Definizioni;No;No;
-1950;Concetto di Feedback loop - Ross Ashby;5. Definizioni;No;No;`;
+    fetch(SCRIPT_URL)
+        .then(response => response.json())
+        .then(rows => {
+            rows.forEach(row => {
+                const year = parseInt(row['Anno']);
+                const title = String(row['Descrizione'] || '').trim();
+                const category = String(row['Categoria'] || '').trim();
+                const sustainability = String(row['Sostenibilità'] || '').toLowerCase() === 'si';
+                const polito = String(row['POLITO'] || '').toLowerCase() === 'si';
 
-            const lines = csvData.split('\n');
-            timelineData = {
-                '1. Storia Generale': [],
-                '2. Enti': [],
-                '3. Documentazione': [],
-                '4. Eventi': [],
-                '5. Definizioni': []
-            };
-
-            lines.forEach(line => {
-                if (!line.trim()) return;
-                const parts = line.split(';');
-                console.log("🚀 ~ loadData ~ parts:", parts.length)
-                
-                const longparts = parts.length >6;
-                while (parts.length < 5) {
-                    parts.push('No');
-                }
-
-                if (parts.length >= 5) {
-                    const year = parseInt(parts[0]);
-                    const title = parts[1].trim().replace(/\*+$/, '').trim();
-                    const category = parts[2].trim();
-
-                    const sustainability =longparts ?parts[4].trim().toLowerCase() === 'si':  parts[3].trim().toLowerCase() === 'si';
-                    const polito = longparts?parts[5].trim().toLowerCase() === 'si':  parts[4].trim().toLowerCase() === 'si';
-
-                    if (timelineData[category]) {
-                        timelineData[category].push({
-                            year,
-                            title,
-                            sustainability,
-                            polito,
-                            fullKey: line
-                        });
-                    }
+                if (timelineData[category]) {
+                    timelineData[category].push({
+                        year,
+                        title,
+                        sustainability,
+                        polito,
+                        fullKey: `${year};${title};${category}`
+                    });
                 }
             });
-
             renderTimelines();
-        }
+        })
+        .catch(error => {
+            console.error('Errore nel caricamento dei dati:', error);
+        });
+}
 
         function filterEvents(searchTerm) {
             const term = searchTerm.toLowerCase().trim();

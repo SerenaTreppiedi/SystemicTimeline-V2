@@ -1223,14 +1223,18 @@ function loadData() {
                 const title = String(row['Descrizione'] || '').trim();
                 const category = String(row['Categoria'] || '').trim();
                 const sustainability = String(row['Sostenibilità'] || '').toLowerCase() === 'si';
-                const polito = String(row['POLITO'] || '').toLowerCase() === 'si';
+                const systemthinking = String(row['SystemThinking_tag'] || '').toLowerCase() === 'si';
+const systemicdesign = String(row['SystemicDesign_tag'] || '').toLowerCase() === 'si';
+const systemdynamic = String(row['SystemDynamic_tag'] || '').toLowerCase() === 'si';
 
                 if (timelineData[category]) {
                     timelineData[category].push({
                         year,
                         title,
                         sustainability,
-                        polito,
+systemthinking,
+systemicdesign,
+systemdynamic,
                         fullKey: `${year};${title};${category}`
                     });
                 }

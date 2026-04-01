@@ -373,11 +373,17 @@
             background: #4CAF50;
         }
 
-        .indicator-polito {
-            background: #2196F3;
-        }
+        .indicator-systemthinking {
+    background: #BFB11B;
+}
+.indicator-systemicdesign {
+    background: #2564BF;
+}
+.indicator-systemdynamic {
+    background: #A42134;
+}
 
-
+        
         .year-markers {
             position: relative;
             height: 25px;
@@ -1321,12 +1327,18 @@ function loadData() {
                 if (event.sustainability) {
                     indicators += '<div class="indicator-dot indicator-sustainability" title="Sostenibilità"></div>';
                 }
-                if (event.polito) {
-                    indicators += '<div class="indicator-dot indicator-polito" title="PoliTO"></div>';
-                }
+             if (event.systemthinking) {
+    indicators += '<div class="indicator-dot indicator-systemthinking" title="System Thinking"></div>';
+}
+if (event.systemicdesign) {
+    indicators += '<div class="indicator-dot indicator-systemicdesign" title="Systemic Design"></div>';
+}
+if (event.systemdynamic) {
+    indicators += '<div class="indicator-dot indicator-systemdynamic" title="System Dynamic"></div>';
+}
 
                 // Costruisci il testo di ricerca
-                const fullText = `${event.year} ${event.title} ${category} ${event.sustainability ? 'Sostenibilità' : ''} ${event.polito ? 'PoliTO' : ''}`;
+               const fullText = `${event.year} ${event.title} ${category} ${event.sustainability ? 'Sostenibilità' : ''} ${event.systemthinking ? 'System Thinking' : ''} ${event.systemicdesign ? 'Systemic Design' : ''} ${event.systemdynamic ? 'System Dynamic' : ''}`;
                 eventElement.setAttribute('data-search-text', fullText.toLowerCase());
 
                 // NUOVO: Struttura del popup con data e pallini affiancati

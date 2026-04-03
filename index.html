@@ -894,7 +894,7 @@ function loadData() {
         .then(response => response.json())
         .then(rows => {
             rows.forEach(row => {
-                const year = parseInt(row['Anno']);
+                const year = parseFloat(row['Anno']);
                 const title = String(row['Descrizione'] || '').trim();
                 const category = String(row['Categoria'] || '').trim();
                 const sustainability = String(row['Sostenibilità'] || '').toLowerCase() === 'si';

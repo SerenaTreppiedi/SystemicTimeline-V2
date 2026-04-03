@@ -906,6 +906,8 @@ const systemdynamic = String(row['SystemDynamic_tag'] || '').toLowerCase() === '
                     timelineData[category].push({
                         year,
                         title,
+                      titleEN: String(row['Titolo_EN_override'] || '').trim(),
+                      // Riga per cambio traduzione da Database
                         sustainability,
 systemthinking,
 systemicdesign,
@@ -1020,7 +1022,8 @@ if (event.systemdynamic) {
                const fullText = `${event.year} ${event.title} ${category} ${event.sustainability ? 'Sostenibilità' : ''} ${event.systemthinking ? 'System Thinking' : ''} ${event.systemicdesign ? 'Systemic Design' : ''} ${event.systemdynamic ? 'System Dynamic' : ''}`;
                 eventElement.setAttribute('data-search-text', fullText.toLowerCase());
 
-                // NUOVO: Struttura del popup con data e pallini affiancati
+                // NUOVO: Struttura del popup con data e pallini affiancati 
+              // modifica anche per TRAD EN da DAtabase
 
                 eventElement.innerHTML = `
                     <div class="event-dot"></div>
@@ -1029,7 +1032,8 @@ if (event.systemdynamic) {
                             <div class="date">${event.year}</div>
                             <div class="indicators">${indicators}</div>
                         </div>
-                        <h4>${langMode == 'it' ? event.title : translations[event.fullKey]}</h4>
+                        <h4>${langMode == 'it' ? event.title : (event.titleEN || event.title)}</h4>
+      
                     </div>
                 `;
 

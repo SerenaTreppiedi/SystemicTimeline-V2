@@ -1024,12 +1024,13 @@ if (event.systemdynamic) {
 
                 // NUOVO: Struttura del popup con data e pallini affiancati 
               // modifica anche per TRAD EN da DAtabase
+              // modifica per date decimali e arrotondamento
 
                 eventElement.innerHTML = `
                     <div class="event-dot"></div>
                     <div class="event-popup">
                         <div class="popup-header">
-                            <div class="date">${event.year}</div>
+                            <div class="date">${Math.floor(event.year)}</div>
                             <div class="indicators">${indicators}</div>
                         </div>
                         <h4>${langMode == 'it' ? event.title : (event.titleEN || event.title)}</h4>

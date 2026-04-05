@@ -921,6 +921,9 @@ systemdynamic,
                 }
             });
             renderTimelines();
+          if (langMode === 'en') {
+    document.getElementById('menuIcon').click();
+}
         })
         .catch(error => {
             console.error('Errore nel caricamento dei dati:', error);

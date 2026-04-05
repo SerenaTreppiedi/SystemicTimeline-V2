@@ -704,7 +704,7 @@
         let langMode = 'en'
 
         document.addEventListener('DOMContentLoaded', function () {
-document.getElementById('infoPopupOverlay').classList.add('active'); document.getElementById('menuIcon').click();
+document.getElementById('infoPopupOverlay').classList.add('active'); 
             
             const initDomLinks = () => {
 
@@ -921,6 +921,11 @@ systemdynamic,
                 }
             });
             renderTimelines();
+setTimeout(() => {
+    if (langMode === 'en') {
+        document.getElementById('menuIcon').click();
+    }
+}, 500);
           if (langMode === 'en') {
     document.getElementById('menuIcon').click();
 }

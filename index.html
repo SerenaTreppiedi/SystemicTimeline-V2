@@ -701,16 +701,11 @@
             
         };
 
-      const translationsEN = {};
-Object.keys(translations).forEach(it => {
-    translationsEN[translations[it]] = it;
-});
-
         let langMode = 'it'
 
         document.addEventListener('DOMContentLoaded', function () {
-document.getElementById('infoPopupOverlay').classList.add('active'); 
-          
+document.getElementById('infoPopupOverlay').classList.add('active');
+            
             const initDomLinks = () => {
 
 
@@ -879,17 +874,7 @@ document.getElementById('infoPopupOverlay').classList.add('active');
             }
 
             initDomLinks()
-// Traduci interfaccia statica immediatamente in inglese
-let all = document.body.innerHTML;
-Object.keys(translations).forEach(it => {
-    all = all.replaceAll(it, translations[it]);
-});
-document.body.innerHTML = all;
-langMode = 'en';
-document.getElementById('menuIcon').innerHTML = 'IT';
-document.querySelectorAll('.it-lang').forEach(el => el.style.display = 'none');
-document.querySelectorAll('.en-lang').forEach(el => el.style.display = 'block');
-initDomLinks();
+
             loadData();
 
             applyZoom();
@@ -935,7 +920,8 @@ systemdynamic,
                     });
                 }
             });
-renderTimelines();
+            renderTimelines();
+        })
         .catch(error => {
             console.error('Errore nel caricamento dei dati:', error);
         });

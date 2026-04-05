@@ -920,15 +920,11 @@ systemdynamic,
                     });
                 }
             });
-            renderTimelines();
+renderTimelines();
+langMode = 'it';
 setTimeout(() => {
-    if (langMode === 'en') {
-        document.getElementById('menuIcon').click();
-    }
-}, 500);
-          if (langMode === 'en') {
     document.getElementById('menuIcon').click();
-}
+}, 300);
         })
         .catch(error => {
             console.error('Errore nel caricamento dei dati:', error);

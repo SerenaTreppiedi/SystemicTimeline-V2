@@ -705,16 +705,6 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('infoPopupOverlay').classList.add('active'); 
-// Traduci subito i testi statici senza aspettare il Google Sheet
-const list = Object.keys(translations);
-let all = document.body.innerHTML;
-list.forEach(item => {
-    all = all.replaceAll(item, translations[item]);
-});
-document.body.innerHTML = all;
-langMode = 'en';
-document.getElementById('menuIcon').innerHTML = 'IT';
-initDomLinks();
           
             const initDomLinks = () => {
 

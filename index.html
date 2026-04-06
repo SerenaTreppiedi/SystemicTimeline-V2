@@ -747,7 +747,12 @@ document.getElementById('infoPopupOverlay').classList.add('active');
             
             const initDomLinks = () => {
 
-
+// Ricollega il pulsante di reset (sostituisci 'resetBtnId' con l'ID reale del tuo pulsante)
+  const pulsanteReset = document.getElementById('resetBtn');
+if (pulsanteReset) {
+    pulsanteReset.onclick = resetZoom;
+  
+}
                 timelineContainer = document.querySelector('.timeline-container');
 
                 // Assicurati che baseWidthPx sia calcolato correttamente
@@ -861,13 +866,15 @@ document.getElementById('menuIcon').innerHTML = langMode == 'it' ? 'EN' : 'IT';
 requestAnimationFrame(() => {
     applyZoom();
     renderTimelines();
- const tc = document.querySelector('.timeline-container');
-if (tc) tc.scrollLeft = savedScroll;
-setTimeout(() => {
-    const tc2 = document.querySelector('.timeline-container');
-    if (tc2) tc2.scrollLeft = savedScroll;
-    fixLabels();
-}, 300);
+    
+    // Questo rimetterà lo scroll al punto giusto dopo il cambio lingua
+    setTimeout(() => {
+        const tc = document.querySelector('.timeline-container');
+        if (tc) {
+            tc.scrollLeft = savedScroll;
+        }
+        if (typeof fixLabels === "function") fixLabels();
+    }, 100); 
 });
 
                         const updateModal = (infos, mode) => {
@@ -1419,7 +1426,7 @@ window.addEventListener('wheel', function(e) {
         <button class="zoom-btn" id="zoomOutBtn" onclick="zoomOut()">−</button>
         <div class="zoom-level" id="zoomLevel">100%</div>
         <button class="zoom-btn" id="zoomInBtn" onclick="zoomIn()">+</button>
-        <button class="zoom-btn" onclick="resetZoom()" title="Reset Zoom">↺</button>
+       <button id="resetBtn" class="zoom-btn" onclick="resetZoom()" title="Reset Zoom">↺</button>
     </div>
 
   <div style="position: absolute; bottom: 0.2rem; left: 50%; transform: translateX(-50%); font-size: 0.55rem; opacity: 0.5; color: #ffffff; white-space: nowrap;">© 2025 Serena Treppiedi — All rights reserved</div>

@@ -1356,7 +1356,7 @@ function fixLabels() {
     const headers = document.querySelectorAll('.timeline-header');
     headers.forEach(header => {
         const line = header.closest('.timeline').querySelector('.timeline-line');
-        const borderColor = getComputedStyle(line).borderLeftColor || getComputedStyle(header).borderLeftColor;
+       const borderColor = getComputedStyle(header.closest('.timeline')).getPropertyValue('--timeline-color').trim();
 
         const rect = header.getBoundingClientRect();
         const title = header.querySelector('.timeline-title');

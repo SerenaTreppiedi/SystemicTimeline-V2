@@ -1355,9 +1355,9 @@ function fixLabels() {
     
     const headers = document.querySelectorAll('.timeline-header');
     headers.forEach(header => {
-        // Leggi il colore PRIMA di spostare l'elemento
-        const color = getComputedStyle(header).borderLeftColor;
-        
+        const line = header.closest('.timeline').querySelector('.timeline-line');
+        const borderColor = getComputedStyle(line).borderLeftColor || getComputedStyle(header).borderLeftColor;
+
         const rect = header.getBoundingClientRect();
         const title = header.querySelector('.timeline-title');
         
@@ -1366,16 +1366,21 @@ function fixLabels() {
         clone.textContent = title.textContent;
         clone.style.cssText = `
             position: fixed;
-            top: ${rect.top + (rect.height / 2) - 10}px;
-            left: ${rect.left + 8}px;
+            top: ${rect.top}px;
+            left: ${rect.left}px;
             z-index: 2000;
             font-family: 'Darker Grotesque', sans-serif;
             font-size: 1.2rem;
             font-weight: 400;
-            color: #FFFFFF;
+            color: ${borderColor};
             pointer-events: none;
-            border-left: 5px solid ${color};
-            padding-left: 6px;
+            background: rgba(26, 26, 26, 0.95);
+            border-left: 3px solid ${borderColor};
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            width: auto;
+            white-space: nowrap;
+            backdrop-filter: blur(10px);
         `;
         document.body.appendChild(clone);
     });

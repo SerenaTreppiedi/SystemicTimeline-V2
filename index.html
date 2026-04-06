@@ -846,31 +846,24 @@ document.getElementById('infoPopupOverlay').classList.add('active');
 
                         }
 
-                        const savedZoom = currentZoom;
+const savedZoom = currentZoom;
 const savedScroll = document.body.scrollLeft;
-                      const savedScrollX = window.scrollX;
 
-document.body.innerHTML = all
+document.body.innerHTML = all;
 
 currentZoom = savedZoom;
-initDomLinks()
+initDomLinks();
+document.getElementById('menuIcon').innerHTML = langMode == 'it' ? 'EN' : 'IT';
 
 requestAnimationFrame(() => {
     applyZoom();
     renderTimelines();
     document.body.scrollLeft = savedScroll;
-    window.scrollTo(savedScrollX, 0);
     setTimeout(() => {
         document.body.scrollLeft = savedScroll;
-        window.scrollTo(savedScrollX, 0);
         fixLabels();
     }, 300);
 });
-
-
-                        initDomLinks()
-                        document.getElementById('menuIcon').innerHTML = langMode == 'it' ? 'EN' : 'IT';
-
 
                         const updateModal = (infos, mode) => {
 

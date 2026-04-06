@@ -189,20 +189,19 @@
         }
 
         .timeline-header {
-              position: sticky;
-    left: 0;
-    z-index: 100;  /* era 5, aumentalo */
-    will-change: transform;  /* ← aggiungi solo questa riga */
+
+     
           display: flex;
             align-items: center;
             margin-bottom: 0.5rem;
             position: sticky;
+          will-change: transform;  /* ← aggiungi solo questa riga */
             left: 0;
             background: rgba(26, 26, 26, 0.95);
             padding: 0.4rem;
             border-radius: 6px;
             backdrop-filter: blur(10px);
-            z-index: 5;
+            z-index: 100
             border-left: 3px solid var(--timeline-color);
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }

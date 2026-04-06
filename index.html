@@ -1349,7 +1349,27 @@ window.addEventListener('wheel', function(e) {
     </footer>
 
 
+<script>
+function fixLabels() {
+    const headers = document.querySelectorAll('.timeline-header');
+    headers.forEach(header => {
+        const rect = header.parentElement.getBoundingClientRect();
+        header.style.position = 'fixed';
+        header.style.top = rect.top + 'px';
+        header.style.left = '1rem';
+        header.style.zIndex = '1000';
+        header.style.width = 'auto';
+    });
+}
 
+// Esegui subito e ad ogni resize
+window.addEventListener('DOMContentLoaded', fixLabels);
+window.addEventListener('resize', fixLabels);
+window.addEventListener('load', fixLabels);
+
+// Ricalcola dopo che i dati sono caricati (aspetta il render)
+setTimeout(fixLabels, 1500);
+</script>
 </body>
 
 </html>

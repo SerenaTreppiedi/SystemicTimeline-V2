@@ -1350,20 +1350,23 @@ window.addEventListener('wheel', function(e) {
 
 <script>
 function fixLabels() {
-    const titles = document.querySelectorAll('.timeline-title');
-    titles.forEach(title => {
-        const rect = title.closest('.timeline').getBoundingClientRect();
-        title.style.position = 'fixed';
-        title.style.top = (rect.top + rect.height / 2 - 10) + 'px';
-        title.style.left = '1.2rem';
-        title.style.zIndex = '1000';
-        title.style.pointerEvents = 'none';
+    const headers = document.querySelectorAll('.timeline-title');
+    headers.forEach(title => {
+        const rect = header.parentElement.getBoundingClientRect();
+        header.style.position = 'fixed';
+        header.style.top = rect.top + 'px';
+        header.style.left = '1rem';
+        header.style.zIndex = '1000';
+        header.style.width = 'auto';
     });
 }
 
-// Ricalcola ad ogni scroll (sia orizzontale che verticale)
-window.addEventListener('scroll', fixLabels, true);
+// Esegui subito e ad ogni resize
+window.addEventListener('DOMContentLoaded', fixLabels);
+window.addEventListener('resize', fixLabels);
 window.addEventListener('load', fixLabels);
+
+// Ricalcola dopo che i dati sono caricati (aspetta il render)
 setTimeout(fixLabels, 1500);
 </script>
   

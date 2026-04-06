@@ -1350,24 +1350,35 @@ window.addEventListener('wheel', function(e) {
 
 <script>
 function fixLabels() {
+    // Rimuovi eventuali label fisse già create
+    document.querySelectorAll('.fixed-label').forEach(el => el.remove());
+    
     const headers = document.querySelectorAll('.timeline-header');
     headers.forEach(header => {
-        const rect = header.parentElement.getBoundingClientRect();
-        header.style.position = 'fixed';
-        header.style.top = rect.top + 'px';
-        header.style.left = '1rem';
-        header.style.zIndex = '1000';
-        header.style.width = 'auto';
-        header.style.background = 'transparent';
-        header.style.backdropFilter = 'none';
-        header.style.boxShadow = 'none';
-        header.style.borderLeft = 'none';
+        const rect = header.getBoundingClientRect();
+        const title = header.querySelector('.timeline-title');
+        
+        // Crea una copia del solo testo, posizionata fixed
+        const clone = document.createElement('div');
+        clone.className = 'fixed-label';
+        clone.textContent = title.textContent;
+        clone.style.cssText = `
+            position: fixed;
+            top: ${rect.top + (rect.height / 2) - 10}px;
+            left: ${rect.left}px;
+            z-index: 2000;
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #FFFFFF;
+            pointer-events: none;
+        `;
+        document.body.appendChild(clone);
     });
 }
 
-window.addEventListener('DOMContentLoaded', fixLabels);
-window.addEventListener('resize', fixLabels);
 window.addEventListener('load', fixLabels);
+window.addEventListener('resize', fixLabels);
 setTimeout(fixLabels, 1500);
 </script>
   

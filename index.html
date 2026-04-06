@@ -54,7 +54,7 @@
             padding-top: 160px;
             /* Sposta le timeline più in basso per evitare l'header */
             padding-bottom: 30px;
-            background-attachment: scroll;
+            background-attachment: fixed;
           overscroll-behavior-x: none;  /* ← aggiungi questa riga */
         }
 
@@ -1441,9 +1441,10 @@ window.addEventListener('resize', fixLabels);
 const origZoomIn = window.zoomIn;
 const origZoomOut = window.zoomOut;
 const origResetZoom = window.resetZoom;
-window.zoomIn = function() { origZoomIn && origZoomIn(); setTimeout(fixLabels, 100); }
-window.zoomOut = function() { origZoomOut && origZoomOut(); setTimeout(fixLabels, 100); }
-window.resetZoom = function() { origResetZoom && origResetZoom(); setTimeout(fixLabels, 100); }
+window.zoomIn = function() { origZoomIn && origZoomIn(); setTimeout(fixLabels, 300); }
+window.zoomOut = function() { origZoomOut && origZoomOut(); setTimeout(fixLabels, 300); }
+window.resetZoom = function() { origResetZoom && origResetZoom(); setTimeout(fixLabels, 300); }
+  document.body.addEventListener('scroll', fixLabels);
 const observer = new MutationObserver(() => setTimeout(fixLabels, 200));
 observer.observe(document.body, { childList: true, subtree: false });
 setTimeout(fixLabels, 1500);

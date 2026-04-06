@@ -846,7 +846,20 @@ document.getElementById('infoPopupOverlay').classList.add('active');
 
                         }
 
-                        document.body.innerHTML = all
+                        const savedZoom = currentZoom;
+const savedScroll = document.body.scrollLeft;
+
+document.body.innerHTML = all
+
+currentZoom = savedZoom;
+initDomLinks()
+
+requestAnimationFrame(() => {
+    document.body.scrollLeft = savedScroll;
+    applyZoom();
+    renderTimelines();
+    setTimeout(fixLabels, 300);
+});
 
 
                         initDomLinks()

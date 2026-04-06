@@ -1140,12 +1140,22 @@ if (event.systemdynamic) {
             renderTimelines();
         }
 
-        function resetZoom() {
-            currentZoom = 1.0;
-            applyZoom();
-            renderTimelines();
-            document.querySelector('.timeline-container').scrollLeft = 0;
+       function resetZoom() {
+    currentZoom = 1.0;
+    applyZoom();
+    renderTimelines();
+
+    // Il timeout permette al browser di terminare il rendering prima di scrollare
+    setTimeout(() => {
+        const container = document.querySelector('.timeline-container');
+        if (container) {
+            container.scrollTo({
+                left: 0,
+                behavior: 'smooth' // o 'auto' per scatto immediato
+            });
         }
+    }, 0);
+}
         
 window.addEventListener('wheel', function(e) {
     const container = document.querySelector('.timeline-container');

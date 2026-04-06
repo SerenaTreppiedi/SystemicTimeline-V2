@@ -1348,26 +1348,25 @@ window.addEventListener('wheel', function(e) {
         <div style="position: absolute; bottom: 0.2rem; left: 50%; transform: translateX(-50%); font-size: 0.45rem; opacity: 0.5; color: #ffffff; white-space: nowrap;">© 2025 Serena Treppiedi — Tutti i diritti riservati</div>
     </footer>
 
-
 <script>
 function fixLabels() {
     const titles = document.querySelectorAll('.timeline-title');
     titles.forEach(title => {
-        const rect = title.parentElement.parentElement.getBoundingClientRect();
+        const rect = title.closest('.timeline').getBoundingClientRect();
         title.style.position = 'fixed';
-        title.style.top = rect.top + 'px';
+        title.style.top = (rect.top + rect.height / 2 - 10) + 'px';
         title.style.left = '1.2rem';
         title.style.zIndex = '1000';
-        title.style.backgroundColor = 'transparent';
         title.style.pointerEvents = 'none';
     });
 }
 
-window.addEventListener('DOMContentLoaded', fixLabels);
-window.addEventListener('resize', fixLabels);
+// Ricalcola ad ogni scroll (sia orizzontale che verticale)
+window.addEventListener('scroll', fixLabels, true);
 window.addEventListener('load', fixLabels);
 setTimeout(fixLabels, 1500);
 </script>
+  
 </body>
 
 </html>

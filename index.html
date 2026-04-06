@@ -1437,6 +1437,14 @@ function fixLabels() {
 
 window.addEventListener('load', fixLabels);
 window.addEventListener('resize', fixLabels);
+const origZoomIn = window.zoomIn;
+const origZoomOut = window.zoomOut;
+const origResetZoom = window.resetZoom;
+window.zoomIn = function() { origZoomIn && origZoomIn(); setTimeout(fixLabels, 100); }
+window.zoomOut = function() { origZoomOut && origZoomOut(); setTimeout(fixLabels, 100); }
+window.resetZoom = function() { origResetZoom && origResetZoom(); setTimeout(fixLabels, 100); }
+const observer = new MutationObserver(() => setTimeout(fixLabels, 200));
+observer.observe(document.body, { childList: true, subtree: false });
 setTimeout(fixLabels, 1500);
 </script>
 

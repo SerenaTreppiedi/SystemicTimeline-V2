@@ -847,7 +847,8 @@ document.getElementById('infoPopupOverlay').classList.add('active');
                         }
 
 const savedZoom = currentZoom;
-const savedScroll = document.body.scrollLeft;
+const container = document.querySelector('.timeline-container');
+const savedScroll = container ? container.scrollLeft : 0;
 const savedBaseWidth = baseWidthPx;
 
 document.body.innerHTML = all;
@@ -860,11 +861,13 @@ document.getElementById('menuIcon').innerHTML = langMode == 'it' ? 'EN' : 'IT';
 requestAnimationFrame(() => {
     applyZoom();
     renderTimelines();
-    document.body.scrollLeft = savedScroll;
-    setTimeout(() => {
-        document.body.scrollLeft = savedScroll;
-        fixLabels();
-    }, 300);
+ const tc = document.querySelector('.timeline-container');
+if (tc) tc.scrollLeft = savedScroll;
+setTimeout(() => {
+    const tc2 = document.querySelector('.timeline-container');
+    if (tc2) tc2.scrollLeft = savedScroll;
+    fixLabels();
+}, 300);
 });
 
                         const updateModal = (infos, mode) => {

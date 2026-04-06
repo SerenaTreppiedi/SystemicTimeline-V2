@@ -1349,56 +1349,57 @@ window.addEventListener('wheel', function(e) {
             </div>
         </div>
     </div>
+  
+<footer class="app-footer">
+    <div class="new-event-prompt">
+        <span>Cosa ci è sfuggito?</span>
+        <a href="https://forms.gle/MdyjtAE9DozBvcBf6" target="_blank" class="add-to-timeline-btn">Aggiungi alla timeline</a>
+    </div>
 
-    <footer class="app-footer">
-        <div class="new-event-prompt">
-            <span>Cosa ci è sfuggito?</span>
-            <a href="https://forms.gle/MdyjtAE9DozBvcBf6" target="_blank" class="add-to-timeline-btn">Aggiungi alla
-                timeline</a>
-   <div class="legend-container">
-    <div class="legend-item">
-        <div class="legend-dot indicator-systemthinking"></div>
-        System Thinking
-        <div class="legend-tooltip" style="border-color: #BFB11B;">
-            <span class="it-lang">Un approccio di pensiero che guarda all'insieme anziché alle singole parti, studiando come gli elementi di un sistema interagiscono tra loro.</span>
-            <span class="en-lang" style="display:none">A holistic mindset that focuses on the relationships between parts of a system rather than the individual components in isolation.</span>
+    <div class="legend-container">
+        <div class="legend-item">
+            <div class="legend-dot indicator-systemthinking"></div>
+            System Thinking
+            <div class="legend-tooltip" style="border-color: #BFB11B;">
+                <span class="it-lang">Un approccio di pensiero che guarda all'insieme anziché alle singole parti, studiando come gli elementi di un sistema interagiscono tra loro.</span>
+                <span class="en-lang" style="display:none">A holistic mindset that focuses on the relationships between parts of a system rather than the individual components in isolation.</span>
+            </div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot indicator-systemicdesign"></div>
+            Systemic Design
+            <div class="legend-tooltip" style="border-color: #2564BF;">
+                <span class="it-lang">La capacità di soddisfare i bisogni attuali senza compromettere le risorse delle generazioni future. Si fonda sull'equilibrio tra tre pilastri fondamentali: ambientale, economico e sociale.</span>
+                <span class="en-lang" style="display:none">An interdisciplinary field that uses design principles to manage complex systems, creating interconnected solutions that harmonize human activity with ecological processes.</span>
+            </div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot indicator-systemdynamic"></div>
+            System Dynamic
+            <div class="legend-tooltip" style="border-color: #A42134;">
+                <span class="it-lang">Una metodologia per modellare matematicamente il comportamento di sistemi complessi nel tempo, focalizzandosi su cicli di feedback e ritardi.</span>
+                <span class="en-lang" style="display:none">A method for understanding the non-linear behavior of complex systems over time through the use of stocks, flows, and feedback loops.</span>
+            </div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot dot-sustainability"></div>
+            Sostenibilità
+            <div class="legend-tooltip" style="border-color: #4CAF50;">
+                <span class="it-lang">La capacità di un sistema di mantenersi in equilibrio nel lungo periodo, garantendo il soddisfacimento dei bisogni attuali senza compromettere le risorse per il futuro.</span>
+                <span class="en-lang" style="display:none">The ability to meet current needs without compromising the resources of future generations. It is based on a balance between three fundamental pillars: environmental, economic, and social.</span>
+            </div>
         </div>
     </div>
-    <div class="legend-item">
-        <div class="legend-dot indicator-systemicdesign"></div>
-        Systemic Design
-        <div class="legend-tooltip" style="border-color: #2564BF;">
-            <span class="it-lang">La capacità di soddisfare i bisogni attuali senza compromettere le risorse delle generazioni future. Si fonda sull'equilibrio tra tre pilastri fondamentali: ambientale, economico e sociale.</span>
-            <span class="en-lang" style="display:none">An interdisciplinary field that uses design principles to manage complex systems, creating interconnected solutions that harmonize human activity with ecological processes.</span>
-        </div>
-    </div>
-    <div class="legend-item">
-        <div class="legend-dot indicator-systemdynamic"></div>
-        System Dynamic
-        <div class="legend-tooltip" style="border-color: #A42134;">
-            <span class="it-lang">Una metodologia per modellare matematicamente il comportamento di sistemi complessi nel tempo, focalizzandosi su cicli di feedback e ritardi.</span>
-            <span class="en-lang" style="display:none">A method for understanding the non-linear behavior of complex systems over time through the use of stocks, flows, and feedback loops.</span>
-        </div>
-    </div>
-    <div class="legend-item">
-        <div class="legend-dot dot-sustainability"></div>
-        Sostenibilità
-        <div class="legend-tooltip" style="border-color: #4CAF50;">
-            <span class="it-lang">La capacità di un sistema di mantenersi in equilibrio nel lungo periodo, garantendo il soddisfacimento dei bisogni attuali senza compromettere le risorse per il futuro.</span>
-            <span class="en-lang" style="display:none">The ability to meet current needs without compromising the resources of future generations. It is based on a balance between three fundamental pillars: environmental, economic, and social.</span>
-        </div>
-    </div>
-</div>
-        <div class="zoom-controls">
-            <button class="zoom-btn" id="zoomOutBtn" onclick="zoomOut()">−</button>
-            <div class="zoom-level" id="zoomLevel">100%</div>
-            <button class="zoom-btn" id="zoomInBtn" onclick="zoomIn()">+</button>
-            <button class="zoom-btn" onclick="resetZoom()" title="Reset Zoom">↺</button>
-            <!-- Icona reset zoom modificata in ↺ -->
-        </div>
-        <div style="position: absolute; bottom: 0.2rem; left: 50%; transform: translateX(-50%); font-size: 0.45rem; opacity: 0.5; color: #ffffff; white-space: nowrap;">© 2025 Serena Treppiedi — Tutti i diritti riservati</div>
-    </footer>
 
+    <div class="zoom-controls">
+        <button class="zoom-btn" id="zoomOutBtn" onclick="zoomOut()">−</button>
+        <div class="zoom-level" id="zoomLevel">100%</div>
+        <button class="zoom-btn" id="zoomInBtn" onclick="zoomIn()">+</button>
+        <button class="zoom-btn" onclick="resetZoom()" title="Reset Zoom">↺</button>
+    </div>
+
+    <div style="position: absolute; bottom: 0.2rem; left: 50%; transform: translateX(-50%); font-size: 0.45rem; opacity: 0.5; color: #ffffff; white-space: nowrap;">© 2025 Serena Treppiedi — Tutti i diritti riservati</div>
+</footer>
 <script>
 function fixLabels() {
     document.querySelectorAll('.fixed-label').forEach(el => el.remove());

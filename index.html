@@ -49,7 +49,7 @@
             max-width: 1400px;
             margin: 0 auto;
             /* MODIFICA: larghezza massima body */
-            overflow-x: scroll;
+            overflow-x: hidden;   /* ← era: overflow-x: scroll */;
             /* MODIFICA: Scrollbar orizzontale sempre visibile */
             padding-top: 160px;
             /* Sposta le timeline più in basso per evitare l'header */
@@ -179,7 +179,8 @@
         .timeline-container {
             padding: 0.5rem 1rem 1rem 1rem;
             min-width: 100%;
-            overflow: visible;
+               overflow-x: auto;     /* ← era: overflow: visible */
+    overflow-y: visible;
             position: relative;
         }
 

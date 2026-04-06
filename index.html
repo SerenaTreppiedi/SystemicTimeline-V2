@@ -1454,10 +1454,10 @@ function fixLabels() {
 
 window.addEventListener('load', fixLabels);
 window.addEventListener('resize', fixLabels);
-window.addEventListener('scroll', fixLabels, true);
-// const origZoomIn = window.zoomIn;
-// const origZoomOut = window.zoomOut;
-// const origResetZoom = window.resetZoom;
+// window.addEventListener('scroll', fixLabels, true);
+ const origZoomIn = window.zoomIn;
+const origZoomOut = window.zoomOut;
+const origResetZoom = window.resetZoom;
 // window.zoomIn = function() { origZoomIn && origZoomIn(); setTimeout(fixLabels, 300); }
 // window.zoomOut = function() { origZoomOut && origZoomOut(); setTimeout(fixLabels, 300); }
 // window.resetZoom = function() { origResetZoom && origResetZoom(); setTimeout(fixLabels, 300); }

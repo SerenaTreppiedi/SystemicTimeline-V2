@@ -848,11 +848,13 @@ document.getElementById('infoPopupOverlay').classList.add('active');
 
 const savedZoom = currentZoom;
 const savedScroll = document.body.scrollLeft;
+const savedBaseWidth = baseWidthPx;
 
 document.body.innerHTML = all;
 
 currentZoom = savedZoom;
 initDomLinks();
+baseWidthPx = savedBaseWidth;
 document.getElementById('menuIcon').innerHTML = langMode == 'it' ? 'EN' : 'IT';
 
 requestAnimationFrame(() => {

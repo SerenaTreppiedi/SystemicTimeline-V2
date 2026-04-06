@@ -189,7 +189,11 @@
         }
 
         .timeline-header {
-            display: flex;
+              position: sticky;
+    left: 0;
+    z-index: 100;  /* era 5, aumentalo */
+    will-change: transform;  /* ← aggiungi solo questa riga */
+          display: flex;
             align-items: center;
             margin-bottom: 0.5rem;
             position: sticky;

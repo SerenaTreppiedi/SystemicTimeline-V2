@@ -227,18 +227,20 @@
             background: linear-gradient(90deg, var(--timeline-color), rgba(255, 255, 255, 0.3));
             transform: translateY(-50%);
         }
-
-        .timeline-line::after {
-            content: '❯';
-            position: absolute;
-            right: -2px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--timeline-color);
-            font-size: 0.9rem;
-            pointer-events: none;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        }
+.timeline-line::after {
+    content: '❯';
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--timeline-color);
+    font-size: 0.9rem;
+    pointer-events: none;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
 
         .timeline-events {
             position: relative;

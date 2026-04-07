@@ -787,61 +787,39 @@ if (pulsanteReset) {
                 const closeInfoPopup = document.getElementById('closeInfoPopup');
 
 
-   document.getElementById('menuIcon').addEventListener('click', () => {
-    try {
-        const list = Object.keys(translations);
-        
-        // Funzione che attraversa i nodi di testo e sostituisce solo il testo
-        function translateNode(node) {
-            if (node.nodeType === Node.TEXT_NODE) {
-                let text = node.textContent;
-                if (langMode == 'it') {
-                    list.forEach(item => {
-                        if (item.indexOf(';') > -1) {
-                            const [year, t] = item.split(';');
-                            text = text.replaceAll(t, translations[item]);
-                        } else {
-                            text = text.replaceAll(item, translations[item]);
-                        }
-                    });
-                } else {
-                    list.forEach(item => {
-                        const eng = translations[item];
-                        if (item.indexOf(';') > -1) {
-                            const [year, t] = item.split(';');
-                            text = text.replaceAll(eng, t);
-                        } else {
-                            text = text.replaceAll(eng, item);
-                        }
-                    });
-                }
-                node.textContent = text;
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                node.childNodes.forEach(child => translateNode(child));
-            }
-        }
+                document.getElementById('menuIcon').addEventListener('click', () => {
 
-        translateNode(document.body);
 
-        langMode = langMode == 'it' ? 'en' : 'it';
-        document.getElementById('menuIcon').innerHTML = langMode == 'it' ? 'EN' : 'IT';
+                    try {
 
-        const updateModal = (infos, mode) => {
-            infos.forEach(infoData => { infoData.style.display = mode; });
-        };
 
-        if (langMode == 'it') {
-            updateModal([...document.getElementsByClassName('en-lang')], 'none');
-            updateModal([...document.getElementsByClassName('it-lang')], 'block');
-        } else {
-            updateModal([...document.getElementsByClassName('en-lang')], 'block');
-            updateModal([...document.getElementsByClassName('it-lang')], 'none');
-        }
+                        const list = Object.keys(translations)
+                        // looping though all of the ""
 
-    } catch (error) {
-        console.log("🚀 ~ error:", error);
-    }
-});
+                        let all = `${document.body.innerHTML}`;
+
+                        if (langMode == 'it') {
+
+                            list.forEach(item => {
+
+
+
+                                if (item.indexOf(';') > -1) {
+
+                                    const [year, text] = item.split(';')
+                                    // console.log("🚀 ~ text:", text)
+
+
+                                    all = all.replaceAll(text, translations[item])
+                                } else {
+                                    all = all.replaceAll(item, translations[item])
+
+
+                                }
+
+
+
+                            })
 
 
                             langMode = 'en'

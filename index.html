@@ -1138,16 +1138,34 @@ window.addEventListener('wheel', function(e) {
     justify-content: center;
     z-index: 999999;
     opacity: 1;
-    transition: opacity 0.8s ease;
+    transition: opacity 1s ease;
+  }
+ #intro-content {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 3.s ease;
   }
   #intro-title {
     color: #bf953f;
-    font-size: 3rem;
+    font-size: 7rem;
     font-weight: bold;
-    opacity: 0;
-    transition: opacity 4s ease;
     text-align: center;
     letter-spacing: 0.05em;
+    font-family: 'Darker Grotesque', sans-serif;
+    line-height: 1;
+  }
+  #intro-subtitle {
+    color: #888888;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 0.15em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: 0.5rem;
+  }
+  #intro-subtitle em {
+    font-style: italic;
+    font-family: 'Georgia', serif;
   }
 </style>
   
@@ -1155,13 +1173,16 @@ window.addEventListener('wheel', function(e) {
 
 <body>
 <div id="intro-overlay">
-  <h1 id="intro-title">System Multitimeline</h1>
+  <div id="intro-content">
+    <h1 id="intro-title">SyChro</h1>
+    <p id="intro-subtitle"><em>Collective</em> Systemic Chronography</p>
+  </div>
 </div>
 
 <script>
   (function () {
     const overlay = document.getElementById('intro-overlay');
-    const title = document.getElementById('intro-title');
+    const title = document.getElementById('intro-content');
 
     requestAnimationFrame(() => {
       title.style.opacity = '1';

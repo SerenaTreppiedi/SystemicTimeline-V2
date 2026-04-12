@@ -1027,7 +1027,7 @@ systemdynamic,
                     indicators += '<div class="indicator-dot indicator-sustainability" title="Sostenibilità"></div>';
                 }
              if (event.systemthinking) {
-    indicators += '<div class="indicator-dot indicator-systemthinking" title="System Thinking"></div>';
+    indicators += '<div class="indicator-dot indicator-systemthinking" title="Systems Thinking"></div>';
 }
 if (event.systemicdesign) {
     indicators += '<div class="indicator-dot indicator-systemicdesign" title="Systemic Design"></div>';
@@ -1037,7 +1037,7 @@ if (event.systemdynamic) {
 }
 
                 // Costruisci il testo di ricerca
-               const fullText = `${event.year} ${event.title} ${category} ${event.sustainability ? 'Sostenibilità' : ''} ${event.systemthinking ? 'System Thinking' : ''} ${event.systemicdesign ? 'Systemic Design' : ''} ${event.systemdynamic ? 'System Dynamic' : ''}`;
+               const fullText = `${event.year} ${event.title} ${category} ${event.sustainability ? 'Sostenibilità' : ''} ${event.systemthinking ? 'Systems Thinking' : ''} ${event.systemicdesign ? 'Systemic Design' : ''} ${event.systemdynamic ? 'System Dynamic' : ''}`;
                 eventElement.setAttribute('data-search-text', fullText.toLowerCase());
 
                 // NUOVO: Struttura del popup con data e pallini affiancati 
@@ -1373,7 +1373,7 @@ window.addEventListener('wheel', function(e) {
     <div class="legend-container">
         <div class="legend-item">
             <div class="legend-dot indicator-systemthinking"></div>
-            System Thinking
+            Systems Thinking
             <div class="legend-tooltip" style="border-color: #BFB11B;">
                 <span class="it-lang">Un approccio di pensiero che guarda all'insieme anziché alle singole parti, studiando come gli elementi di un sistema interagiscono tra loro.</span>
                 <span class="en-lang" style="display:none">A holistic mindset that focuses on the relationships between parts of a system rather than the individual components in isolation.</span>

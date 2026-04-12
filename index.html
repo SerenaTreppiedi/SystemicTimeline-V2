@@ -524,7 +524,25 @@
             transform: translateY(-2px);
             box-shadow: 0 3px 10px rgba(189, 156, 89, 0.3);
         }
+.continue-btn {
+    background: #424242;
+    color: #FFFFFF;
+    border: 1px solid #BF953F;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.75rem;
+}
 
+.continue-btn:hover {
+    background: #555555;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(189, 156, 89, 0.3);
+}
         .zoom-controls {
             display: flex;
             gap: 0.6rem;
@@ -617,7 +635,7 @@
             background: none;
             border: none;
             color: #BF953F;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
             width: 32px;
             height: 32px;
@@ -1246,6 +1264,10 @@ window.addEventListener('wheel', function(e) {
 <br><br>Vuoi contribuire al database sistemico? Clicca sul pulsante in basso a sinistra (↙) per proporre un contenuto o per scrivere un feedback.</p>
     
     <p style="text-align: center; font-style: italic; color: #d4a34d; margin-top: 25px; font-size: 1.1em;">Grazie e buona esplorazione!</p>
+  <div style="text-align: right; margin-top: 1.5rem;">
+    <button class="continue-btn it-lang" onclick="document.getElementById('infoPopupOverlay').classList.remove('active')">Prosegui</button>
+    <button class="continue-btn en-lang" style="display:none" onclick="document.getElementById('infoPopupOverlay').classList.remove('active')">Continue</button>
+</div>
 </div>
        
           
